@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pastels -->
+    <color name="pastel_pink">#F8BBD0</color>      <!-- soft pink -->
+    <color name="pastel_pink_dark">#F48FB1</color> <!-- a bit deeper for pressed states -->
+    <color name="pastel_blue">#B3E5FC</color>      <!-- soft blue -->
+    <color name="pastel_blue_dark">#81D4FA</color>
+
+    <!-- App theme colors (used by Theme.Complete) -->
+    <color name="primary">#F48FB1</color>          <!-- pink as primary -->
+    <color name="onPrimary">#FFFFFFFF</color>
+    <color name="secondary">#81D4FA</color>        <!-- blue as secondary -->
+    <color name="onSecondary">#FF003247</color>
+
+    <color name="surface">#FFFFFFFF</color>
+    <color name="onSurface">#FF1F2430</color>
+    <color name="surfaceVariant">#80FFFFFF</color> <!-- translucent for glassy fills -->
+
+    <!-- Missing from your layout usage -->
+    <color name="onSurfaceVariant">#49454F</color> <!-- M3 light -->
+    <color name="glass_80">#CCFFFFFF</color>       <!-- 80% white for glass -->
+
+    <color name="hintText">#99000000</color>
+
+    <!-- Subtle shadows / strokes for glass effect -->
+    <color name="glass_fill">#66FFFFFF</color>     <!-- 40% white -->
+    <color name="glass_stroke">#33FFFFFF</color>   <!-- 20% white -->
+
+    <color name="chip_peach">#FFF1D6</color>
+    <color name="chip_mint">#DFF6EA</color>
+    <color name="chip_blue">#E0ECFF</color>
+    <color name="chip_lav">#F0E9FF</color>
+    <color name="chip_lemon">#FFF7C7</color>
+
+    <color name="primaryContainer">#FFE3ED</color>
+    <color name="onPrimaryContainer">#3B0F1C</color>
+
+    <color name="peach_200">#FFE1CF</color>
+    <color name="mint_200">#D5F1E4</color>
+    <color name="blue_200">#D8E8FF</color>
+    <color name="lav_200">#E9E0FF</color>
+    <color name="lemon_200">#FFF2B8</color>
+
+    <color name="peach_50">#FFF3E9</color>
+
+</resources>

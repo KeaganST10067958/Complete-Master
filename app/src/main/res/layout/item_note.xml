@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/btnPin"
+                android:background="@android:color/transparent"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/pin"/>
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:background="@android:color/transparent"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/delete"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtSnippet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

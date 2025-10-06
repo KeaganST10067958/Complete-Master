@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Soft page background -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="315"
+                android:startColor="@color/pastel_blue"
+                android:endColor="@color/pastel_pink" />
+        </shape>
+    </item>
+
+    <!-- Very faint white mist for a glassy feel -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="800dp"
+                android:centerX="50%"
+                android:centerY="35%"
+                android:startColor="#80FFFFFF"
+                android:endColor="#00FFFFFF"/>
+        </shape>
+    </item>
+
+</layer-list>
