@@ -8,7 +8,7 @@
     <string name="app_brand">@string/brand_plandemic</string>
     <string name="app_tagline">@string/splash_tagline</string>
     <string name="default_web_client_id">
-        62337078691-fqm61ads5lttk7r73fsl4s26bcmt4dn8.apps.googleusercontent.com
+        62337078691-56lvibi6kr4oi9rdh1o9bh0c97o92clb.apps.googleusercontent.com
     </string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -120,5 +120,9 @@
     <string name="settings_logout">Log out</string>
     <string name="settings_logged_out">Logged out</string>
     <string name="settings_unknown">Unknown</string>
+g>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password_q">Forgot password?</string>
+    <string name="log_in">Log in</string>
 
 </resources>

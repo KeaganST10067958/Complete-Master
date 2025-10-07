@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Network for Firebase/Auth/etc. -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Complete">
 
+        <!-- Launcher / Splash -->
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.keagan.complete.ui.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Complete">
             <intent-filter>
@@ -21,8 +23,24 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.LoginActivity" android:exported="false" />
-        <activity android:name=".ui.RegisterActivity" android:exported="false" />
-        <activity android:name=".ui.MainActivity" android:exported="false" />
+        <activity android:name="com.keagan.complete.ui.quote.QuoteSplashActivity" />
+
+
+        <!-- Login (fix: correct package path) -->
+        <activity
+            android:name="com.keagan.complete.auth.LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Register (use the auth package if your RegisterActivity is there) -->
+        <activity
+            android:name="com.keagan.complete.ui.RegisterActivity"
+            android:exported="false" />
+
+        <!-- Main host activity -->
+        <activity
+            android:name="com.keagan.complete.ui.MainActivity"
+            android:exported="false" />
+
     </application>
 </manifest>

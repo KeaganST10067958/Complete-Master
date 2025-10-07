@@ -1,13 +1,5 @@
 package com.keagan.complete.data.remote
 
-// --- Motivation quote ---
-data class QuoteDto(
-    val id: String? = null,
-    val text: String = "",
-    val author: String? = null,
-    val date: String? = null
-)
-
 // --- Streak ---
 data class StreakDto(
     val current: Int = 0,

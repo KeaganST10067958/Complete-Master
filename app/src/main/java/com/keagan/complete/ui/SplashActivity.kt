@@ -2,10 +2,11 @@ package com.keagan.complete.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.animation.AlphaAnimation
 import androidx.appcompat.app.AppCompatActivity
+import com.keagan.complete.auth.LoginActivity
 import com.keagan.complete.databinding.ActivitySplashBinding
-import com.keagan.complete.ui.splash.SwooshWriterView
 
 class SplashActivity : AppCompatActivity() {
 
@@ -16,64 +17,51 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Kick off the swoosh/typing animation using a resilient shim.
-        binding.swooshWriter.runSplash {
-            // tiny pause to “breathe” before leaving
-            binding.swooshWriter.postDelayed({
-                smoothExitToLogin()
-            }, 600)
+        // Try to start any animation if the view exists; otherwise just wait briefly.
+        val swoosh = runCatching { binding.root.findViewById<View>(resources.getIdentifier("swooshWriter", "id", packageName)) }.getOrNull()
+
+        // Fire and forget: never crash if the custom view/class is missing.
+        if (swoosh != null) {
+            // If your custom view has any of these methods, call them via reflection (safe).
+            runCatching {
+                val m = swoosh::class.java.methods.firstOrNull { it.name in setOf("start", "play", "begin", "startSequence") && it.parameterTypes.isEmpty() }
+                if (m != null) {
+                    m.invoke(swoosh)
+                    swoosh.postDelayed({ smoothExitToLogin() }, 2600)
+                } else {
+                    // no starter method; just delay and go
+                    swoosh.postDelayed({ smoothExitToLogin() }, 1600)
+                }
+            }.onFailure {
+                // Even if reflection fails, still navigate
+                swoosh.postDelayed({ smoothExitToLogin() }, 1600)
+            }
+        } else {
+            // No animation view in this layout – simple timed splash
+            binding.root.postDelayed({ smoothExitToLogin() }, 1000)
         }
     }
 
     private fun smoothExitToLogin() {
-        val card = binding.cardContainer
-        val fade = AlphaAnimation(1f, 0f).apply {
-            duration = 450
-            fillAfter = true
-        }
-        card.startAnimation(fade)
+        if (isFinishing || isDestroyed) return
 
-        card.postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
-            // simple crossfade
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-            finish()
-        }, 460)
-    }
-}
+        // If your layout has a card container, fade it; otherwise just navigate.
+        val cardId = resources.getIdentifier("cardContainer", "id", packageName)
+        val card: View? = if (cardId != 0) findViewById(cardId) else null
 
-/**
- * Tries to start the custom splash animation on SwooshWriterView without
- * knowing the exact function name. Supports:
- *   - start(), play(), begin(), startSequence()
- *   - and the same names that take a Runnable callback
- * If none found, it waits ~2.6s then calls onFinish.
- */
-private fun SwooshWriterView.runSplash(onFinish: () -> Unit) {
-    val cls = this::class.java
-
-    // Try no-arg starters first
-    val noArgNames = arrayOf("start", "play", "begin", "startSequence")
-    for (name in noArgNames) {
-        try {
-            val m = cls.getMethod(name)
-            m.invoke(this)
-            // fallback duration if the view doesn’t provide a callback
-            postDelayed({ onFinish() }, 2600)
-            return
-        } catch (_: Exception) { /* try next */ }
+        card?.let {
+            val fade = AlphaAnimation(1f, 0f).apply {
+                duration = 350
+                fillAfter = true
+            }
+            it.startAnimation(fade)
+            it.postDelayed({ goToLogin() }, 360)
+        } ?: goToLogin()
     }
 
-    // Try starters that accept a Runnable callback
-    val runnableNames = arrayOf("start", "play", "begin", "startSequence")
-    for (name in runnableNames) {
-        try {
-            val m = cls.getMethod(name, Runnable::class.java)
-            m.invoke(this, Runnable { onFinish() })
-            return
-        } catch (_: Exception) { /* try next */ }
+    private fun goToLogin() {
+        startActivity(Intent(this, LoginActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
     }
-
-    // Last resort: just wait a bit and continue.
-    postDelayed({ onFinish() }, 2600)
 }
