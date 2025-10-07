@@ -82,7 +82,7 @@ The app fetches a random quote from the API and displays it on the **splash scre
 
 **🎬 Demo Video Link:**
 
-👉 **[Insert YouTube or Google Drive Link Here]**
+👉 **https://youtu.be/UOVcgdoP1DY?si=eYWomwWvBzFPzQq1**
 
 ---
 
