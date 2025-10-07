@@ -71,9 +71,9 @@ The app fetches a random quote from the API and displays it on the **splash scre
 | :--- | :--- | :--- |
 | **Login Screen** | Google SSO & Email Login | <img src="https://github.com/user-attachments/assets/54050633-de0f-44b9-9b53-5e364e31b3b5" width="150"/> <img src="https://github.com/user-attachments/assets/576f9c07-df52-4727-9071-a9f935f64553" width="150"/> <img src="https://github.com/user-attachments/assets/d5071728-d124-44a1-9aa6-21f1c42283c1" width="150"/>|
 | **Home (Splash Quote)/ Dashboard** | Home displays random motivational quote and Dashboard displays navigation | <img src="https://github.com/user-attachments/assets/9bb07d47-2e6f-4017-836c-9ea9292985e0" width="150"/> <img src="https://github.com/user-attachments/assets/f538ef21-3316-4f31-9672-033d1e7707d7" width="150"/> <img src="https://github.com/user-attachments/assets/926b0494-07ac-4196-97a5-26b7d743e084" alt="Main App Dashboard" width="150"/>|
-| **To-Do List** | Add/Edit/Delete daily tasks | 📷 (Add your own screenshots here once you’ve taken them) |
+| **To-Do List** | Add/Edit/Delete daily tasks |<img src="https://github.com/user-attachments/assets/f02beb44-31be-40d0-a2dc-a9511b69fe91" width="150"/> <img src="https://github.com/user-attachments/assets/b7dc9d1a-6a41-4aa4-8887-9ac3b822ab15" width="150"/>|
 | **Sticky Notes** | Manage study notes |  <img src="https://github.com/user-attachments/assets/b086a86f-d605-4c71-bb46-b00157555a01" width="150"/> <img src="https://github.com/user-attachments/assets/9e6b2798-1e89-46de-b157-66ff208e6a2c" width="150"/>|
-| **Pomodoro Timer** | Study & break sessions | 📷 (Add your own screenshots here once you’ve taken them) |
+| **Pomodoro Timer** | Study & break sessions |<img src="https://github.com/user-attachments/assets/5314dcab-e1d2-4068-90a2-79b3f335f929" width="150"/>|
 | **Settings** | User info + theme toggle | <img src="https://github.com/user-attachments/assets/653a86e6-2e67-429f-b090-00b3b9b2bb54" width="150"/> |
 
 ---
