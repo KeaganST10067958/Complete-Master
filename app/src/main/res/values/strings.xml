@@ -29,8 +29,8 @@
     <string name="placeholder_quote_text">“Small progress is still progress.”</string>
     <string name="placeholder_quote_author">— PlanDemic</string>
 
-    <string name="check_in_for_today">Check in for today</string>
-    <string name="checked_in_today">Checked in today</string>
+        <string name="checked_in_today">Checked in today</string>
+        <string name="check_in_today">Check in for today</string>
 
     <!-- Bottom nav -->
     <string name="title_home">Home</string>
@@ -120,7 +120,7 @@
     <string name="settings_logout">Log out</string>
     <string name="settings_logged_out">Logged out</string>
     <string name="settings_unknown">Unknown</string>
-g>
+
     <string name="remember_me">Remember me</string>
     <string name="forgot_password_q">Forgot password?</string>
     <string name="log_in">Log in</string>
@@ -128,4 +128,30 @@ g>
 
     <string name="error_required">Please enter a title.</string>
     <string name="delete_confirm">Delete this to-do?</string>
+
+    <!-- res/values/strings.xml -->
+    <plurals name="days_to_milestone">
+        <item quantity="one">%1$d more day to hit %2$d!</item>
+        <item quantity="other">%1$d more days to hit %2$d!</item>
+    </plurals>
+
+    <string name="daily_streak">Daily streak</string>
+    <string name="reset">Reset</string>
+    <string name="best_x">Best: %1$d</string>
+    <string name="day_streak_single">day streak</string>
+    <string name="day_streak_plural">day streak</string>
+    <string name="milestone_reached">Milestone %1$d reached!</string>
+
+    <string name="day_streak">day streak</string>
+    <string name="check_in">Check in</string>
+    <!-- res/values/strings.xml -->
+    <string name="day_streak_singular">day streak</string>
+    <string name="best_fmt">Best: %1$d</string>
+    <string name="milestone_done">Milestone reached!</string>
+
+    <plurals name="days_to_target">
+        <item quantity="one">%1$d more day to hit %2$d!</item>
+        <item quantity="other">%1$d more days to hit %2$d!</item>
+    </plurals>
+
 </resources>
