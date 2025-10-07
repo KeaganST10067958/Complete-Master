@@ -4,17 +4,88 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_pastel_gradient">
+    android:padding="16dp">
 
+    <!-- Title -->
     <TextView
+        android:id="@+id/titlePomodoro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pomodoro (placeholder)"
-        android:textSize="18sp"
+        android:text="Pomodoro"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="@color/onSurface"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Timer display -->
+    <TextView
+        android:id="@+id/textTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:25:00"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/titlePomodoro"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Pickers container -->
+    <LinearLayout
+        android:id="@+id/pickersRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/textTimer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <NumberPicker
+            android:id="@+id/pickerHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <NumberPicker
+            android:id="@+id/pickerMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"/>
+
+        <NumberPicker
+            android:id="@+id/pickerSeconds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- Controls -->
+    <LinearLayout
+        android:id="@+id/controlsRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/pickersRow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp">
+
+        <Button
+            android:id="@+id/btnPlayPause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

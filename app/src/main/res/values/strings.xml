@@ -95,5 +95,18 @@
 
     <string name="note_deleted">Note deleted</string>
 
+    <string name="calendar_title">Calendar</string>
+    <string name="calendar_empty">No items for this day.</string>
+        <string name="calendar_empty_day">No items for this day.</string>
+
+        <string name="back">Back</string>
+        <string name="settings">Settings</string>
+        <string name="set_duration">Set duration</string>
+
+        <!-- Optional, if you referenced contentDescriptions -->
+        <string name="cd_back">Go back</string>
+        <string name="cd_settings">Open settings</string>
+        <string name="cd_play">Start timer</string>
+        <string name="cd_pause">Pause timer</string>
 
 </resources>
