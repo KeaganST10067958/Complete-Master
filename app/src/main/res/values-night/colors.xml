@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pastelPink">#FF9DB8</color>
-    <color name="pastelBlue">#9FD8FF</color>
-
     <color name="primary">#FF7AA8</color>
     <color name="onPrimary">#FFFFFF</color>
     <color name="secondary">#7BCBFF</color>
@@ -16,11 +13,9 @@
     <color name="onSurfaceVariant">#CAC4D0</color> <!-- M3 dark -->
     <color name="glass_80">#CCFFFFFF</color>       <!-- 80% white works well on dark -->
 
-    <color name="navActive">#FF6CA8</color>
-    <color name="navInactive">#66FFFFFF</color>
+    <color name="pastelPink">#FF7AA8</color>
+    <color name="navActive">#FF7AA8</color>
+    <color name="navInactive">#CAC4D0</color>
 
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
     <color name="hintText">#66FFFFFF</color>
-    <color name="pinkPen">#FF6CA8</color>
 </resources>
