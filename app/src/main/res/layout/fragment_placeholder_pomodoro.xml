@@ -17,32 +17,53 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Timer display -->
-    <TextView
-        android:id="@+id/textTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00:25:00"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:layout_marginTop="24dp"
+    <!-- Glass tile (timer goes inside this) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/glassTile"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="20dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:strokeColor="@color/glass_stroke"
+        app:strokeWidth="1dp"
         app:layout_constraintTop_toBottomOf="@id/titlePomodoro"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Glass tile under the countdown -->
-    <FrameLayout
-        android:id="@+id/glassTile"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_glass_tile"
-        android:elevation="8dp"
-        app:layout_constraintTop_toBottomOf="@id/textTimer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Glass background + inner sheen -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_glass_pomodoro"
+            android:padding="18dp">
 
-    <!-- Pickers container -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_glass_pomodoro_inner" />
+
+            <!-- TIMER is inside the glass tile now -->
+            <TextView
+                android:id="@+id/textTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="00:25:00"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.02"
+                android:textColor="@color/onSurface"
+                android:shadowColor="#33FFFFFF"
+                android:shadowDx="0"
+                android:shadowDy="1"
+                android:shadowRadius="6" />
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Pickers -->
     <LinearLayout
         android:id="@+id/pickersRow"
         android:layout_width="0dp"
@@ -84,7 +105,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Keep same IDs; only background/text styling -->
         <Button
             android:id="@+id/btnPlayPause"
             android:layout_width="0dp"
