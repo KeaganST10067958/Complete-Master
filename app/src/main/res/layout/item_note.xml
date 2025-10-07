@@ -4,55 +4,82 @@
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="12dp"
     app:cardCornerRadius="16dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    app:strokeWidth="0dp">
 
-    <LinearLayout
-        android:padding="12dp"
-        android:orientation="vertical"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:minHeight="96dp"
+        android:padding="12dp">
 
+        <!-- Title -->
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/onSurface"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/actionsRow"
+            app:layout_goneMarginEnd="8dp" />
+
+        <!-- Actions (pin + delete) -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/actionsRow"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/txtTitle"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <ImageButton
                 android:id="@+id/btnPin"
-                android:background="@android:color/transparent"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@string/pin"/>
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/pinned"
+                android:padding="4dp"
+                android:src="@drawable/ic_pin" />
+
             <ImageButton
                 android:id="@+id/btnDelete"
-                android:background="@android:color/transparent"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@string/delete"/>
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/delete"
+                android:padding="4dp"
+                android:src="@drawable/ic_delete_24" />
         </LinearLayout>
 
+        <!-- Body/snippet -->
         <TextView
             android:id="@+id/txtSnippet"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"/>
+            android:layout_marginTop="6dp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textColor="@color/onSurface"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- Date -->
         <TextView
             android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="12sp"/>
-    </LinearLayout>
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:textColor="#7A000000"
+            app:layout_constraintTop_toBottomOf="@id/txtSnippet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

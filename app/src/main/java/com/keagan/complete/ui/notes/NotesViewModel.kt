@@ -36,5 +36,9 @@ class NotesViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun delete(n: Note) = viewModelScope.launch { dao.delete(n) }
+
+    /** used by swipe-undo to put the same note back (keeps the old id) */
+    fun restore(n: Note) = viewModelScope.launch { dao.upsert(n) }
+
     fun togglePin(n: Note) = viewModelScope.launch { dao.setPinned(n.id, !n.pinned) }
 }
