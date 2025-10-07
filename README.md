@@ -55,10 +55,12 @@ The app fetches a random quote from the API and displays it on the **splash scre
 👉 `https://quotes-api-render.onrender.com/quotes/random`
 
 **API Integration Process:**
-<img width="1904" height="936" alt="Screenshot 2025-10-07 200411" src="https://github.com/user-attachments/assets/f4f3e695-f7c4-428c-9758-eb7bc7a9b3d6" />
-<img width="1919" height="939" alt="Screenshot 2025-10-07 200426" src="https://github.com/user-attachments/assets/7a1fbc6e-4139-4b99-9156-1736d8e3008c" />
-<img width="1542" height="707" alt="Screenshot 2025-10-07 201445" src="https://github.com/user-attachments/assets/19af5699-3ce0-4049-9f18-2c6ff91ce992" />
-<img width="1917" height="933" alt="Screenshot 2025-10-07 202318" src="https://github.com/user-attachments/assets/cbe69e59-c13d-40b8-8463-5a0898426a89" />
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f4f3e695-f7c4-428c-9758-eb7bc7a9b3d6" alt="Login Screen" width="200" style="margin: 5px;"/>
+  <img src="https://github.com/user-attachments/assets/7a1fbc6e-4139-4b99-9156-1736d8e3008c" alt="Splash Quote Screen" width="200" style="margin: 5px;"/>
+  <img src="https://github.com/user-attachments/assets/19af5699-3ce0-4049-9f18-2c6ff91ce992" alt="To-Do List Screen" width="200" style="margin: 5px;"/>
+  <img src="https://github.com/user-attachments/assets/cbe69e59-c13d-40b8-8463-5a0898426a89" alt="Sticky Notes Screen" width="200" style="margin: 5px;"/>
+</div>
 
 
 ---
@@ -67,12 +69,12 @@ The app fetches a random quote from the API and displays it on the **splash scre
 
 | Screen | Description | Screenshot |
 | :--- | :--- | :--- |
-| **Login Screen** | Google SSO & Email Login | 📷 (Add your own screenshots here once you’ve taken them) |
-| **Home (Splash Quote)** | Displays random motivational quote | 📷 (Add your own screenshots here once you’ve taken them) |
+| **Login Screen** | Google SSO & Email Login | <img src="https://github.com/user-attachments/assets/54050633-de0f-44b9-9b53-5e364e31b3b5" width="150"/> <img src="https://github.com/user-attachments/assets/576f9c07-df52-4727-9071-a9f935f64553" width="150"/> <img src="https://github.com/user-attachments/assets/d5071728-d124-44a1-9aa6-21f1c42283c1" width="150"/>|
+| **Home (Splash Quote)/ Dashboard** | Home displays random motivational quote and Dashboard displays navigation | <img src="https://github.com/user-attachments/assets/9bb07d47-2e6f-4017-836c-9ea9292985e0" width="150"/> <img src="https://github.com/user-attachments/assets/f538ef21-3316-4f31-9672-033d1e7707d7" width="150"/> <img src="https://github.com/user-attachments/assets/926b0494-07ac-4196-97a5-26b7d743e084" alt="Main App Dashboard" width="150"/>|
 | **To-Do List** | Add/Edit/Delete daily tasks | 📷 (Add your own screenshots here once you’ve taken them) |
-| **Sticky Notes** | Manage study notes | 📷 (Add your own screenshots here once you’ve taken them) |
+| **Sticky Notes** | Manage study notes |  <img src="https://github.com/user-attachments/assets/b086a86f-d605-4c71-bb46-b00157555a01" width="150"/> <img src="https://github.com/user-attachments/assets/9e6b2798-1e89-46de-b157-66ff208e6a2c" width="150"/>|
 | **Pomodoro Timer** | Study & break sessions | 📷 (Add your own screenshots here once you’ve taken them) |
-| **Settings** | User info + theme toggle | 📷 (Add your own screenshots here once you’ve taken them) |
+| **Settings** | User info + theme toggle | <img src="https://github.com/user-attachments/assets/653a86e6-2e67-429f-b090-00b3b9b2bb54" width="150"/> |
 
 ---
 
