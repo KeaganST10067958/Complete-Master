@@ -109,4 +109,16 @@
         <string name="cd_play">Start timer</string>
         <string name="cd_pause">Pause timer</string>
 
+    <!-- res/values/strings.xml -->
+    <string name="settings_default_user_name">User</string>
+    <string name="settings_profile">Profile</string>
+    <string name="settings_profile_title">Profile</string>
+    <string name="settings_profile_body">Name: %1$s\nEmail: %2$s\nUID: %3$s</string>
+    <string name="settings_dark_mode">Dark mode</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_soon">Coming soon</string>
+    <string name="settings_logout">Log out</string>
+    <string name="settings_logged_out">Logged out</string>
+    <string name="settings_unknown">Unknown</string>
+
 </resources>

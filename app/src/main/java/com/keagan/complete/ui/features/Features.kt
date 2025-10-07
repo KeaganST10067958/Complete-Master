@@ -4,4 +4,3 @@ import com.keagan.complete.R
 
 class CalendarFragment : Fragment(R.layout.fragment_placeholder_calendar)
 class NotesFragment : Fragment(R.layout.fragment_placeholder_notes)
-class SettingsFragment : Fragment(R.layout.fragment_placeholder_settings)

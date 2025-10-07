@@ -45,7 +45,7 @@
         android:id="@+id/navigation_settings"
         android:name="com.keagan.complete.ui.features.SettingsFragment"
         android:label="@string/tile_settings"
-        tools:layout="@layout/fragment_placeholder_settings" />
+        tools:layout="@layout/fragment_settings" />
 
 
 
