@@ -1,0 +1,73 @@
+name: Plan-demic CI (APK & AAB artifacts)
+
+env:
+  # Your app module
+  main_project_module: app
+
+  # Used only for artifact names (cosmetic)
+  playstore_name: Plan-demic
+
+on:
+  # Run on your branch
+  push:
+    branches:
+      - 'master'
+
+  # Allow manual runs from Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Set Current Date As Env Variable
+      - name: Set current date as env variable
+        run: echo "date_today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      # Set Repository Name As Env Variable (auto-detects Complete-Master)
+      - name: Set repository name as env variable
+        run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+
+      - name: Set Up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Grant execute permission to Gradle wrapper
+        run: chmod +x ./gradlew
+
+      # Optional: safe even if you have 0 tests (will pass with 0 tests)
+      - name: Run unit tests
+        run: ./gradlew test
+
+      # Build all
+      - name: Build (debug & release)
+        run: ./gradlew clean assembleDebug assemble
+
+      # Build Play Store bundle (release)
+      - name: Build App Bundle (AAB)
+        run: ./gradlew ${{ env.main_project_module }}:bundleRelease
+
+      # Upload artifacts so you can download them from the run page
+      - name: Upload APK Debug
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) debug
+          path: ${{ env.main_project_module }}/build/outputs/apk/debug/
+
+      - name: Upload APK Release
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) release
+          path: ${{ env.main_project_module }}/build/outputs/apk/release/
+
+      - name: Upload AAB Release
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - AAB release
+          path: ${{ env.main_project_module }}/build/outputs/bundle/release/
