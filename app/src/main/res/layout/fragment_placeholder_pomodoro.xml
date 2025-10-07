@@ -25,10 +25,22 @@
         android:text="00:25:00"
         android:textSize="36sp"
         android:textStyle="bold"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/titlePomodoro"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Glass tile under the countdown -->
+    <FrameLayout
+        android:id="@+id/glassTile"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_glass_tile"
+        android:elevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/textTimer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Pickers container -->
     <LinearLayout
@@ -37,28 +49,27 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/textTimer"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/glassTile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <NumberPicker
             android:id="@+id/pickerHours"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <NumberPicker
             android:id="@+id/pickerMinutes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"/>
+            android:layout_marginEnd="12dp" />
 
         <NumberPicker
             android:id="@+id/pickerSeconds"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <!-- Controls -->
@@ -68,24 +79,30 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/pickersRow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Keep same IDs; only background/text styling -->
         <Button
             android:id="@+id/btnPlayPause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Play"/>
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_primary_button"
+            android:text="Play"
+            android:textColor="#FFFFFFFF" />
 
         <Button
             android:id="@+id/btnReset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_secondary_button"
             android:text="Reset"
-            android:layout_marginStart="16dp"/>
-
+            android:textColor="#CC2B2B2B" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
