@@ -11,6 +11,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.keagan.complete.databinding.ActivityRegisterBinding
+import com.keagan.complete.auth.LoginActivity
+
 
 class RegisterActivity : AppCompatActivity() {
 

@@ -11,7 +11,7 @@ import com.keagan.complete.R
 import kotlin.math.min
 
 /**
- * Pastel swoosh -> writes "PlanDemic" -> writes tagline.
+ * Pastel swoosh -> writes "Plan-demic" -> writes tagline.
  * Starts automatically when attached.
  */
 class SwooshWriterView @JvmOverloads constructor(
@@ -21,8 +21,8 @@ class SwooshWriterView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     // Text to draw (defaults to your strings)
-    private val brand = resources.getString(R.string.app_brand)          // "PlanDemic"
-    private val tagline = resources.getString(R.string.app_tagline)      // "Organize • Plan • Complete"
+    private val brand = resources.getString(R.string.app_brand)     // e.g. "Plan-demic"
+    private val tagline = resources.getString(R.string.app_tagline) // e.g. "Organize • Plan • Complete"
 
     // Colors (pastel pink/blue + onSurface)
     private val pink = ContextCompat.getColor(context, R.color.primary)
@@ -129,7 +129,10 @@ class SwooshWriterView @JvmOverloads constructor(
         // Draw swoosh with partial length using PathMeasure + DashPathEffect trick
         val measure = PathMeasure(swooshPath, false)
         val length = measure.length
-        swooshPaint.pathEffect = DashPathEffect(floatArrayOf(length, length), (1f - swooshProgress) * length)
+        swooshPaint.pathEffect = DashPathEffect(
+            floatArrayOf(length, length),
+            (1f - swooshProgress) * length
+        )
         canvas.drawPath(swooshPath, swooshPaint)
 
         // Draw brand with reveal by clip
@@ -139,7 +142,13 @@ class SwooshWriterView @JvmOverloads constructor(
         drawRevealedText(canvas, tagPaint, tagline, tagBaseline, tagReveal)
     }
 
-    private fun drawRevealedText(canvas: Canvas, paint: Paint, text: String, baseline: Float, reveal: Float) {
+    private fun drawRevealedText(
+        canvas: Canvas,
+        paint: Paint,
+        text: String,
+        baseline: Float,
+        reveal: Float
+    ) {
         if (reveal <= 0f) return
         val cx = width / 2f
         // Gradient ink that matches swoosh (subtle)
@@ -161,13 +170,16 @@ class SwooshWriterView @JvmOverloads constructor(
         canvas.restoreToCount(save)
     }
 
+    /**
+     * Timings tuned so brand + tagline are fully visible by ~1.8s.
+     * Fits inside a ~2.6s splash exit without changing your Activity.
+     */
     fun startAnimation(
-        swooshDuration: Long = 1100L,
-        brandDuration: Long = 1100L,
-        tagDuration: Long = 1100L,
-        delayBetween: Long = 1100L
+        swooshDuration: Long = 900L,
+        brandDuration: Long = 900L,
+        tagDuration: Long = 700L
     ) {
-        // Swoosh
+        // Swoosh (first)
         val a1 = ValueAnimator.ofFloat(0f, 1f).apply {
             duration = swooshDuration
             interpolator = PathInterpolatorCompat.easeOut()
@@ -177,10 +189,9 @@ class SwooshWriterView @JvmOverloads constructor(
             }
         }
 
-        // Brand write
+        // Brand reveal (immediately after swoosh)
         val a2 = ValueAnimator.ofFloat(0f, 1f).apply {
             duration = brandDuration
-            startDelay = delayBetween
             interpolator = PathInterpolatorCompat.easeInOut()
             addUpdateListener {
                 brandReveal = it.animatedValue as Float
@@ -188,10 +199,9 @@ class SwooshWriterView @JvmOverloads constructor(
             }
         }
 
-        // Tagline write
+        // Tagline reveal (together with brand)
         val a3 = ValueAnimator.ofFloat(0f, 1f).apply {
             duration = tagDuration
-            startDelay = delayBetween
             interpolator = PathInterpolatorCompat.easeInOut()
             addUpdateListener {
                 tagReveal = it.animatedValue as Float
@@ -200,16 +210,16 @@ class SwooshWriterView @JvmOverloads constructor(
         }
 
         AnimatorSet().apply {
-            playSequentially(a1, a2, a3)
+            // brand + tagline run together, both AFTER the swoosh
+            play(a2).after(a1)
+            play(a3).with(a2)
             start()
         }
     }
 
     private fun dp(v: Float) = v * resources.displayMetrics.density
 
-    /**
-     * Small helpers for nicer timing without adding dependencies.
-     */
+    /** Simple easing helpers without extra deps */
     private object PathInterpolatorCompat {
         fun easeOut() = android.view.animation.AccelerateDecelerateInterpolator()
         fun easeInOut() = android.view.animation.DecelerateInterpolator()
