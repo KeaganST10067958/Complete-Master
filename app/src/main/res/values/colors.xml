@@ -46,6 +46,8 @@
     <color name="pastelPink">#F48FB1</color>
     <color name="navActive">#FF6FA8</color>
     <color name="navInactive">#7F92A8</color>
+    <color name="white">#FFFFFFFF</color>
+
 
 
 </resources>
