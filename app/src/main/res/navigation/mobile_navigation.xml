@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.keagan.complete.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.keagan.complete.ui.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.keagan.complete.ui.features.CalendarFragment"
+        android:label="Calendar"
+        tools:layout="@layout/fragment_placeholder_calendar" />
+
+    <fragment
+        android:id="@+id/todosFragment"
+        android:name="com.keagan.complete.ui.features.TodosFragment"
+        android:label="To-Dos"
+        tools:layout="@layout/fragment_placeholder_todos" />
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.keagan.complete.ui.notes.NotesFragment"
+        android:label="Notes"
+        tools:layout="@layout/fragment_notes" />
+
+    <fragment
+        android:id="@+id/pomodoroFragment"
+        android:name="com.keagan.complete.ui.features.PomodoroFragment"
+        android:label="Pomodoro"
+        tools:layout="@layout/fragment_placeholder_pomodoro" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.keagan.complete.ui.features.SettingsFragment"
+        android:label="@string/tile_settings"
+        tools:layout="@layout/fragment_placeholder_settings" />
+
+
+
+</navigation>

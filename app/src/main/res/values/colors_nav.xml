@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pastel palette for BottomNavigation -->
+    <color name="pastel_pink_700">#FF6FA8</color>
+    <color name="pastel_blue_700">#5AA9E6</color>
+    <color name="pastel_blue_gray_600">#7F92A8</color>
+</resources>

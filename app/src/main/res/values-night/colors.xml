@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FF7AA8</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="secondary">#7BCBFF</color>
+    <color name="onSecondary">#0D0D0D</color>
+
+    <color name="surface">#121212</color>
+    <color name="onSurface">#FFFFFF</color>
+    <color name="surfaceVariant">#1E1F23</color>
+
+    <!-- Missing from your layout usage -->
+    <color name="onSurfaceVariant">#CAC4D0</color> <!-- M3 dark -->
+    <color name="glass_80">#CCFFFFFF</color>       <!-- 80% white works well on dark -->
+
+    <color name="pastelPink">#FF7AA8</color>
+    <color name="navActive">#FF7AA8</color>
+    <color name="navInactive">#CAC4D0</color>
+
+    <color name="hintText">#66FFFFFF</color>
+</resources>
