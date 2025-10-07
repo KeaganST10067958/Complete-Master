@@ -1,33 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="24dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_pastel_gradient"
+    android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvQuote"
-        android:text="Loading motivation…"
-        android:textSize="20sp"
-        android:lineSpacingExtra="4dp"
-        android:gravity="center"
+    <!-- Glassy card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="28dp"
+        app:cardCornerRadius="22dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="@color/glass_stroke"
+        app:strokeWidth="1dp"
+        app:cardBackgroundColor="@color/glass_80"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvAuthor" />
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/tvAuthor"
-        android:text=""
-        android:textSize="16sp"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/tvQuote"
-        app:layout_constraintEnd_toEndOf="@id/tvQuote"
-        app:layout_constraintTop_toBottomOf="@id/tvQuote"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="22dp">
+
+            <!-- Decorative open-quote -->
+            <TextView
+                android:id="@+id/tvQuoteMark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="44sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <!-- Quote -->
+            <TextView
+                android:id="@+id/tvQuote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="6dp"
+                android:text="Loading motivation…"
+                android:textSize="20sp"
+                android:lineSpacingExtra="6dp"
+                android:letterSpacing="0.01"
+                android:textColor="@color/onSurface"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="8"
+                android:ellipsize="end"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5" />
+
+            <!-- Soft divider -->
+            <View
+                android:id="@+id/divider"
+                android:layout_width="56dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/glass_stroke"
+                app:layout_constraintTop_toBottomOf="@id/tvQuote"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Author -->
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:textColor="@color/onSurface"
+                android:alpha="0.85"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                app:layout_constraintStart_toStartOf="@id/tvQuote"
+                app:layout_constraintEnd_toEndOf="@id/tvQuote"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,57 +1,56 @@
 package com.keagan.complete.ui.todos
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.keagan.complete.R
-import com.keagan.complete.data.notes.NoteColor
-import com.keagan.complete.data.todos.Todo
-import com.keagan.complete.databinding.ItemTodoBinding
+import com.keagan.complete.databinding.RowTodoBinding
+
+data class Todo(
+    val id: String,
+    val title: String,
+    val category: String? = null,
+    var done: Boolean = false
+)
 
 class TodosAdapter(
-    private val onToggle: (Todo, Boolean) -> Unit,
+    private val onToggle: (Todo) -> Unit,
     private val onDelete: (Todo) -> Unit
 ) : ListAdapter<Todo, TodosAdapter.VH>(DIFF) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val b = ItemTodoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return VH(b, onToggle, onDelete)
+    companion object {
+        private val DIFF = object : DiffUtil.ItemCallback<Todo>() {
+            override fun areItemsTheSame(old: Todo, new: Todo) = old.id == new.id
+            override fun areContentsTheSame(old: Todo, new: Todo) = old == new
+        }
     }
 
-    override fun onBindViewHolder(holder: VH, position: Int) = holder.bind(getItem(position))
-
-    class VH(
-        private val b: ItemTodoBinding,
-        private val onToggle: (Todo, Boolean) -> Unit,
-        private val onDelete: (Todo) -> Unit
-    ) : RecyclerView.ViewHolder(b.root) {
-
+    inner class VH(val b: RowTodoBinding) : RecyclerView.ViewHolder(b.root) {
         fun bind(item: Todo) {
-            // card tint using NoteColor mapping
-            b.root.setCardBackgroundColor(b.root.context.getColor(item.color.toColorRes()))
             b.tvTitle.text = item.title
-            b.tvCategory.text = item.category.name.lowercase().replaceFirstChar { it.titlecase() }
+            b.tvCategory.text = item.category ?: ""
+
             b.cbDone.setOnCheckedChangeListener(null)
             b.cbDone.isChecked = item.done
-            b.cbDone.setOnCheckedChangeListener { _, checked -> onToggle(item, checked) }
+
+            // strike through + subtle grey when done
+            b.tvTitle.paintFlags =
+                if (item.done) b.tvTitle.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                else b.tvTitle.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+
+            b.root.alpha = if (item.done) 0.55f else 1f
+
+            b.cbDone.setOnCheckedChangeListener { _, _ -> onToggle(item) }
             b.btnDelete.setOnClickListener { onDelete(item) }
         }
     }
 
-    companion object {
-        private val DIFF = object : DiffUtil.ItemCallback<Todo>() {
-            override fun areItemsTheSame(o: Todo, n: Todo) = o.id == n.id
-            override fun areContentsTheSame(o: Todo, n: Todo) = o == n
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        val inf = LayoutInflater.from(parent.context)
+        return VH(RowTodoBinding.inflate(inf, parent, false))
     }
-}
 
-private fun NoteColor.toColorRes(): Int = when (this) {
-    NoteColor.PEACH -> R.color.peach_200
-    NoteColor.MINT -> R.color.mint_200
-    NoteColor.BLUE -> R.color.blue_200
-    NoteColor.LAVENDER -> R.color.lav_200
-    NoteColor.LEMON -> R.color.lemon_200
+    override fun onBindViewHolder(holder: VH, position: Int) = holder.bind(getItem(position))
 }

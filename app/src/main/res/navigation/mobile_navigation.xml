@@ -25,9 +25,9 @@
 
     <fragment
         android:id="@+id/todosFragment"
-        android:name="com.keagan.complete.ui.features.TodosFragment"
+        android:name="com.keagan.complete.ui.todos.TodosFragment"
         android:label="To-Dos"
-        tools:layout="@layout/fragment_placeholder_todos" />
+        tools:layout="@layout/fragment_todos" />
 
     <fragment
         android:id="@+id/notesFragment"

@@ -124,5 +124,8 @@ g>
     <string name="remember_me">Remember me</string>
     <string name="forgot_password_q">Forgot password?</string>
     <string name="log_in">Log in</string>
+    <string name="saved_fmt">Saved: %1$s</string>
 
+    <string name="error_required">Please enter a title.</string>
+    <string name="delete_confirm">Delete this to-do?</string>
 </resources>
